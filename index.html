@@ -1,0 +1,2072 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informe encuesta CPAs Granada - junio 2026</title>
+<style>
+  :root {
+    --c-blue: #0074c8;
+    --c-cyan: #00acd9;
+    --c-green: #94d40b;
+    --c-amber: #ffb61b;
+    --c-orange: #ff6600;
+    --c-red: #dc143c;
+    --ink: #172033;
+    --ink-2: #334155;
+    --muted: #64748b;
+    --soft: #f8fafc;
+    --soft-2: #eef6fb;
+    --line: #d8e2ec;
+    --paper: #ffffff;
+    --shadow: 0 18px 45px rgba(23,32,51,.08);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: linear-gradient(180deg, #f7fbfd 0%, #fff 38%, #f9fbf7 100%);
+    color: var(--ink);
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  header {
+    background:
+      linear-gradient(90deg, rgba(0,116,200,.08), rgba(0,172,217,.08) 30%, rgba(148,212,11,.08) 62%, rgba(255,182,27,.09)),
+      var(--paper);
+    border-bottom: 1px solid var(--line);
+  }
+  .top-rule {
+    height: 5px;
+    background: linear-gradient(90deg, var(--c-blue), var(--c-cyan), var(--c-green), var(--c-amber), var(--c-orange), var(--c-red));
+  }
+  .hero {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 2.2rem 2rem 1.7rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 2rem;
+    align-items: end;
+  }
+  .eyebrow {
+    font-size: .68rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 700;
+    margin-bottom: .55rem;
+  }
+  h1 {
+    margin: 0;
+    font-size: clamp(1.65rem, 2.6vw, 2.65rem);
+    line-height: 1.08;
+    letter-spacing: 0;
+    max-width: 950px;
+  }
+  h1 em { color: var(--c-blue); font-style: normal; }
+  .subtitle {
+    max-width: 840px;
+    color: var(--ink-2);
+    font-size: .92rem;
+    margin-top: .75rem;
+  }
+  .meta {
+    min-width: 210px;
+    display: grid;
+    gap: .45rem;
+    text-align: right;
+  }
+  .meta span {
+    font-size: .72rem;
+    color: var(--muted);
+  }
+  .meta strong {
+    display: block;
+    color: var(--ink);
+    font-size: 1.65rem;
+    line-height: 1;
+  }
+
+  main { max-width: 1240px; margin: 0 auto; padding: 1.6rem 2rem 4rem; }
+
+  .intro-band {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr);
+    gap: 1.1rem;
+    align-items: stretch;
+    margin: 1rem 0 1.6rem;
+  }
+  .intro-copy {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+    padding: 1.35rem 1.45rem;
+  }
+  .intro-copy p { margin: 0; color: var(--ink-2); }
+  .insight {
+    background: #172033;
+    color: #fff;
+    padding: 1.35rem 1.45rem;
+    border-top: 4px solid var(--c-green);
+  }
+  .insight-title {
+    font-size: .67rem;
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    color: rgba(255,255,255,.58);
+    margin-bottom: .55rem;
+    font-weight: 700;
+  }
+  .insight p { margin: 0; color: rgba(255,255,255,.86); }
+
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+    margin: 2rem 0 .85rem;
+  }
+  .section-head:first-of-type { margin-top: 1rem; }
+  .marker {
+    width: 4px;
+    height: 1.3rem;
+    background: var(--c-blue);
+  }
+  .marker.green { background: var(--c-green); }
+  .marker.cyan { background: var(--c-cyan); }
+  .marker.amber { background: var(--c-amber); }
+  .marker.red { background: var(--c-red); }
+  h2 {
+    margin: 0;
+    font-size: .78rem;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+    color: var(--ink-2);
+  }
+  .rule { height: 1px; background: var(--line); flex: 1; }
+  .section-note { color: var(--muted); font-size: .68rem; }
+
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: .85rem;
+  }
+  .kpi {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--c-blue);
+    padding: 1rem;
+  }
+  .kpi.cyan { border-top-color: var(--c-cyan); }
+  .kpi.green { border-top-color: var(--c-green); }
+  .kpi.amber { border-top-color: var(--c-amber); }
+  .kpi.orange { border-top-color: var(--c-orange); }
+  .kpi-label {
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    font-size: .62rem;
+    font-weight: 700;
+  }
+  .kpi-value {
+    font-size: 2rem;
+    line-height: 1.05;
+    font-weight: 800;
+    margin-top: .35rem;
+  }
+  .kpi-sub { color: var(--muted); font-size: .68rem; margin-top: .28rem; }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+  }
+  .card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 1.1rem;
+  }
+  .card-title {
+    font-size: .66rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 800;
+    padding-bottom: .55rem;
+    margin-bottom: .85rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .bar-list { display: grid; gap: .62rem; }
+  .bar-row { display: flex; align-items: baseline; justify-content: space-between; gap: .8rem; margin-bottom: .18rem; }
+  .bar-name { font-size: .75rem; color: var(--ink-2); }
+  .bar-num { font-size: .68rem; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .track { height: 7px; background: #e7eef5; overflow: hidden; }
+  .fill { height: 100%; background: var(--c-blue); }
+  .fill.cyan { background: var(--c-cyan); }
+  .fill.green { background: var(--c-green); }
+  .fill.amber { background: var(--c-amber); }
+  .fill.orange { background: var(--c-orange); }
+  .fill.red { background: var(--c-red); }
+  .bar-item.is-top {
+    padding: .55rem .65rem;
+    border: 1px solid rgba(0,116,200,.24);
+    background: rgba(0,116,200,.045);
+  }
+  .bar-item.is-second {
+    padding: .45rem .6rem;
+    border: 1px solid rgba(148,212,11,.26);
+    background: rgba(148,212,11,.055);
+  }
+  .rank-chip {
+    display: inline-block;
+    margin-left: .45rem;
+    padding: .08rem .35rem;
+    font-size: .56rem;
+    font-weight: 800;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: #005a9e;
+    background: rgba(0,116,200,.1);
+  }
+  .rank-chip.second {
+    color: #4a6000;
+    background: rgba(148,212,11,.14);
+  }
+
+  .heat-grid { display: grid; gap: .42rem; }
+  .heat-row {
+    display: grid;
+    grid-template-columns: minmax(220px, 320px) 1fr auto;
+    gap: .6rem;
+    align-items: center;
+  }
+  .heat-row.is-top {
+    padding: .42rem .5rem;
+    border: 1px solid rgba(0,116,200,.22);
+    background: rgba(0,116,200,.045);
+  }
+  .heat-rank {
+    display: inline-block;
+    margin-right: .4rem;
+    color: var(--c-blue);
+    font-size: .62rem;
+    font-weight: 900;
+    font-variant-numeric: tabular-nums;
+  }
+  .heat-label { color: var(--ink-2); font-size: .74rem; }
+  .heat-track { height: 20px; background: #ecf2f7; }
+  .heat-fill { height: 100%; background: linear-gradient(90deg, var(--c-cyan), var(--c-blue)); min-width: 4px; }
+  .heat-n { color: var(--muted); font-size: .68rem; width: 72px; text-align: right; font-variant-numeric: tabular-nums; }
+
+  table { width: 100%; border-collapse: collapse; font-size: .72rem; }
+  th {
+    text-align: left;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-size: .6rem;
+    padding: .45rem .55rem;
+    background: var(--soft);
+    border-bottom: 1px solid var(--line);
+  }
+  td {
+    padding: .5rem .55rem;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink-2);
+    vertical-align: top;
+  }
+  tr:hover td { background: #fbfdff; }
+  .scroll-x { overflow-x: auto; }
+  .badge {
+    display: inline-block;
+    font-size: .62rem;
+    font-weight: 800;
+    padding: .12rem .42rem;
+    background: rgba(0,116,200,.08);
+    color: #005a9e;
+    white-space: nowrap;
+  }
+  .conclusion {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 1.25rem 1.35rem;
+    border-top: 4px solid var(--c-orange);
+  }
+  .conclusion p { margin: 0 0 .85rem; color: var(--ink-2); }
+  .conclusion p:last-child { margin-bottom: 0; }
+  .closing {
+    margin-top: 2rem;
+    background:
+      linear-gradient(90deg, rgba(0,116,200,.08), rgba(0,172,217,.06) 28%, rgba(148,212,11,.08) 60%, rgba(255,182,27,.1)),
+      var(--paper);
+    border: 1px solid var(--line);
+    border-top: 5px solid transparent;
+    border-image: linear-gradient(90deg, var(--c-blue), var(--c-cyan), var(--c-green), var(--c-amber), var(--c-orange), var(--c-red)) 1;
+    padding: 1.45rem 1.55rem;
+  }
+  .closing-kicker {
+    color: var(--muted);
+    font-size: .66rem;
+    font-weight: 800;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    margin-bottom: .5rem;
+  }
+  .closing-text p {
+    margin: 0;
+    max-width: 980px;
+    color: var(--ink-2);
+    font-size: .9rem;
+    line-height: 1.72;
+  }
+  .closing-text p + p { margin-top: .7rem; }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    padding: 2rem;
+    font-size: .66rem;
+    border-top: 1px solid var(--line);
+    background: rgba(255,255,255,.65);
+  }
+
+  @media (max-width: 940px) {
+    .hero, .intro-band, .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    .meta { text-align: left; min-width: 0; }
+    .kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .heat-row { grid-template-columns: 1fr; gap: .25rem; }
+    .heat-n { text-align: left; width: auto; }
+  }
+  @media (max-width: 560px) {
+    main, .hero { padding-left: 1rem; padding-right: 1rem; }
+    .kpi-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="top-rule"></div>
+  <div class="hero">
+    <div>
+      <div class="eyebrow">Encuesta · Centros de Participación Activa · Provincia de Granada</div>
+      <h1>Explotación de la <em>encuesta</em> en los Centros de Participación Activa de la provincia de Granada</h1>
+      <div class="subtitle">Informe dinámico para identificar perfil profesional, actividades con mayor acogida, colaboración local y demandas formativas en salud. Junio 2026.</div>
+    </div>
+    <div class="meta">
+      <span><strong id="meta-n">21</strong> registros completados</span>
+      <span id="meta-date">Datos de encuesta · 18 junio 2026</span>
+      <span>Provincia de Granada</span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="intro-band">
+    <div class="intro-copy">
+      <p id="intro-text"></p>
+    </div>
+    <aside class="insight">
+      <div class="insight-title">Lectura ejecutiva</div>
+      <p id="executive-text"></p>
+    </aside>
+  </section>
+
+  <div class="section-head">
+    <div class="marker"></div>
+    <h2>Resumen General</h2>
+    <div class="rule"></div>
+    <div class="section-note" id="summary-note"></div>
+  </div>
+  <div class="kpi-grid" id="kpi-row"></div>
+
+  <div class="section-head">
+    <div class="marker cyan"></div>
+    <h2>Perfil y Alcance Territorial</h2>
+    <div class="rule"></div>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">Perfil profesional</div>
+      <div id="perfil-bars"></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Tamaño de población del municipio</div>
+      <div id="poblacion-bars"></div>
+    </div>
+  </div>
+
+  <div class="section-head">
+    <div class="marker green"></div>
+    <h2>Actividad Cotidiana en los CPAs</h2>
+    <div class="rule"></div>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">Actuaciones con mayor acogida</div>
+      <div id="acogida-bars"></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Contenidos abordados en las actividades declaradas</div>
+      <div id="actividades-bars"></div>
+    </div>
+  </div>
+
+  <div class="section-head">
+    <div class="marker amber"></div>
+    <h2>Programas, Colaboración y Red Local</h2>
+    <div class="rule"></div>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">Participación en programas o recursos</div>
+      <div id="programas-bars"></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Profesionales con quienes se trabajan temas de salud</div>
+      <div id="colaboracion-bars"></div>
+    </div>
+  </div>
+
+  <div class="section-head">
+    <div class="marker red"></div>
+    <h2>Demanda Formativa en Salud</h2>
+    <div class="rule"></div>
+    <div class="section-note">temáticas priorizadas por los respondentes</div>
+  </div>
+  <div class="card">
+    <div class="card-title">Mapa de calor de necesidades formativas</div>
+    <div id="tematicas-heat"></div>
+  </div>
+
+  <div class="section-head">
+    <div class="marker green"></div>
+    <h2>Conclusiones</h2>
+    <div class="rule"></div>
+  </div>
+  <div class="conclusion" id="conclusions"></div>
+
+  <div class="section-head">
+    <div class="marker cyan"></div>
+    <h2>Tabla de Respondentes</h2>
+    <div class="rule"></div>
+    <div class="section-note" id="table-note"></div>
+  </div>
+  <div class="card scroll-x">
+    <table id="tabla"></table>
+  </div>
+
+  <section class="closing">
+    <div class="closing-kicker">Cierre narrativo</div>
+    <div class="closing-text" id="narrative-close"></div>
+  </section>
+</main>
+
+<footer>Informe de encuesta · Centros de Participación Activa · Provincia de Granada · junio 2026</footer>
+
+<script>
+let DATA = [
+  {
+    "id": 1,
+    "ts": "22/04/2026",
+    "sexo": 1,
+    "edad": 23,
+    "pob": 3,
+    "perf": [
+      0,
+      0
+    ],
+    "acog": [
+      1,
+      0,
+      0,
+      1,
+      0
+    ],
+    "act": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "otras_act": "dfsdasdas",
+    "prog": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0
+    ],
+    "otro_prog": "ddadas",
+    "tem": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "oprofe": [
+      1,
+      0,
+      0,
+      0,
+      1
+    ],
+    "mas_prof": "adsasdasdsa",
+    "otras_c": 1,
+    "otros_int": "sasadasd"
+  },
+  {
+    "id": 2,
+    "ts": "19/05/2026",
+    "sexo": 1,
+    "edad": null,
+    "pob": 5,
+    "perf": [
+      1,
+      0
+    ],
+    "acog": [
+      1,
+      0,
+      1,
+      0,
+      0
+    ],
+    "act": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "otras_act": "",
+    "prog": [
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0
+    ],
+    "otro_prog": "",
+    "tem": [
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0
+    ],
+    "oprofe": [
+      0,
+      1,
+      1,
+      1,
+      0
+    ],
+    "mas_prof": "",
+    "otras_c": 0,
+    "otros_int": ""
+  },
+  {
+    "id": 3,
+    "ts": "19/05/2026",
+    "sexo": 1,
+    "edad": null,
+    "pob": 5,
+    "perf": [
+      0,
+      1
+    ],
+    "acog": [
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "act": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "otras_act": "",
+    "prog": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    "otro_prog": "mesa de salud con distinta entidades sociosanitarias",
+    "tem": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    "oprofe": [
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "mas_prof": "psicólogos y trabajadores sociales",
+    "otras_c": 0,
+    "otros_int": ""
+  },
+  {
+    "id": 4,
+    "ts": "19/05/2026",
+    "sexo": 1,
+    "edad": 49,
+    "pob": 5,
+    "perf": [
+      0,
+      1
+    ],
+    "acog": [
+      0,
+      1,
+      0,
+      1,
+      0
+    ],
+    "act": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    "otras_act": "",
+    "prog": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0
+    ],
+    "otro_prog": "",
+    "tem": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+    ],
+    "oprofe": [
+      0,
+      0,
+      1,
+      1,
+      0
+    ],
+    "mas_prof": "",
+    "otras_c": 0,
+    "otros_int": ""
+  },
+  {
+    "id": 5,
+    "ts": "19/05/2026",
+    "sexo": 1,
+    "edad": null,
+    "pob": 5,
+    "perf": [
+      1,
+      0
+    ],
+    "acog": [
+      1,
+      1,
+      1,
+      0,
+      1
+    ],
+    "act": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    "otras_act": "",
+    "prog": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0
+    ],
+    "otro_prog": "mesa de salud de zona Norte",
+    "tem": [
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    "oprofe": [
+      0,
+      0,
+      1,
+      1,
+      0
+    ],
+    "mas_prof": "",
+    "otras_c": 1,
+    "otros_int": "formación sobre deterioro cognitivo entorno social y envejecimiento"
+  },
+  {
+    "id": 6,
+    "ts": "19/05/2026",
+    "sexo": 1,
+    "edad": 55,
+    "pob": 5,
+    "perf": [
+      1,
+      0
+    ],
+    "acog": [
+      0,
+      1,
+      1,
+      0,
+      1
+    ],
+    "act": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "otras_act": "",
+    "prog": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "otro_prog": "",
+    "tem": [
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    "oprofe": [
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    "mas_prof": "",
+    "otras_c": 0,
+    "otros_int": ""
+  },
+  {
+    "id": 7,
+    "ts": "19/05/2026",
+    "sexo": 1,
+    "edad": 62,
+    "pob": 5,
+    "perf": [
+      1,
+      1
+    ],
+    "acog": [
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "act": [
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0
+    ],
+    "otras_act": "",
+    "prog": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0
+    ],
+    "otro_prog": "",
+    "tem": [
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "oprofe": [
+      0,
+      0,
+      1,
+      1,
+      0
+    ],
+    "mas_prof": "",
+    "otras_c": null,
+    "otros_int": ""
+  },
+  {
+    "id": 8,
+    "ts": "19/05/2026",
+    "sexo": 1,
+    "edad": null,
+    "pob": 5,
+    "perf": [
+      1,
+      1
+    ],
+    "acog": [
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "act": [
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0
+    ],
+    "otras_act": "",
+    "prog": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0
+    ],
+    "otro_prog": "",
+    "tem": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "oprofe": [
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    "mas_prof": "",
+    "otras_c": 0,
+    "otros_int": ""
+  },
+  {
+    "id": 9,
+    "ts": "26/05/2026",
+    "sexo": 1,
+    "edad": null,
+    "pob": 4,
+    "perf": [
+      1,
+      0
+    ],
+    "acog": [
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "act": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "otras_act": "",
+    "prog": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0
+    ],
+    "otro_prog": "",
+    "tem": [
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "oprofe": [
+      0,
+      1,
+      1,
+      0,
+      0
+    ],
+    "mas_prof": "",
+    "otras_c": 0,
+    "otros_int": ""
+  },
+  {
+    "id": 10,
+    "ts": "26/05/2026",
+    "sexo": 2,
+    "edad": 58,
+    "pob": 1,
+    "perf": [
+      1,
+      0
+    ],
+    "acog": [
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "act": [
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "otras_act": "",
+    "prog": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0
+    ],
+    "otro_prog": "Ayuntamiento",
+    "tem": [
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0
+    ],
+    "oprofe": [
+      1,
+      1,
+      1,
+      1,
+      0
+    ],
+    "mas_prof": "",
+    "otras_c": 0,
+    "otros_int": ""
+  },
+  {
+    "id": 11,
+    "ts": "26/05/2026",
+    "sexo": 1,
+    "edad": 51,
+    "pob": 3,
+    "perf": [
+      1,
+      0
+    ],
+    "acog": [
+      0,
+      1,
+      1,
+      0,
+      0
+    ],
+    "act": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "otras_act": "",
+    "prog": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "otro_prog": "",
+    "tem": [
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "oprofe": [
+      1,
+      0,
+      1,
+      0,
+      0
+    ],
+    "mas_prof": "",
+    "otras_c": 0,
+    "otros_int": ""
+  },
+  {
+    "id": 12,
+    "ts": "26/05/2026",
+    "sexo": 1,
+    "edad": 60,
+    "pob": 3,
+    "perf": [
+      1,
+      0
+    ],
+    "acog": [
+      1,
+      1,
+      1,
+      0,
+      1
+    ],
+    "act": [
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "otras_act": "",
+    "prog": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0
+    ],
+    "otro_prog": "",
+    "tem": [
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    "oprofe": [
+      1,
+      0,
+      1,
+      1,
+      0
+    ],
+    "mas_prof": "",
+    "otras_c": 0,
+    "otros_int": ""
+  },
+  {
+    "id": 13,
+    "ts": "26/05/2026",
+    "sexo": 1,
+    "edad": 67,
+    "pob": 3,
+    "perf": [
+      1,
+      0
+    ],
+    "acog": [
+      0,
+      1,
+      1,
+      0,
+      0
+    ],
+    "act": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    "otras_act": "",
+    "prog": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "otro_prog": "",
+    "tem": [
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "oprofe": [
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    "mas_prof": "",
+    "otras_c": 0,
+    "otros_int": ""
+  },
+  {
+    "id": 14,
+    "ts": "26/05/2026",
+    "sexo": 1,
+    "edad": 44,
+    "pob": 2,
+    "perf": [
+      1,
+      0
+    ],
+    "acog": [
+      0,
+      1,
+      1,
+      0,
+      0
+    ],
+    "act": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "otras_act": "",
+    "prog": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    "otro_prog": "",
+    "tem": [
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0
+    ],
+    "oprofe": [
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    "mas_prof": "",
+    "otras_c": 0,
+    "otros_int": ""
+  },
+  {
+    "id": 15,
+    "ts": "26/05/2026",
+    "sexo": 1,
+    "edad": 56,
+    "pob": 4,
+    "perf": [
+      1,
+      0
+    ],
+    "acog": [
+      0,
+      1,
+      1,
+      0,
+      0
+    ],
+    "act": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "otras_act": "",
+    "prog": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "otro_prog": "",
+    "tem": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "oprofe": [
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    "mas_prof": "",
+    "otras_c": 0,
+    "otros_int": ""
+  },
+  {
+    "id": 16,
+    "ts": "26/05/2026",
+    "sexo": 1,
+    "edad": 65,
+    "pob": 4,
+    "perf": [
+      0,
+      1
+    ],
+    "acog": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "act": [
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "otras_act": "",
+    "prog": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "otro_prog": "",
+    "tem": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "oprofe": [
+      0,
+      0,
+      1,
+      1,
+      0
+    ],
+    "mas_prof": "",
+    "otras_c": 0,
+    "otros_int": ""
+  },
+  {
+    "id": 17,
+    "ts": "26/05/2026",
+    "sexo": 1,
+    "edad": null,
+    "pob": 5,
+    "perf": [
+      1,
+      0
+    ],
+    "acog": [
+      0,
+      0,
+      1,
+      1,
+      0
+    ],
+    "act": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "otras_act": "",
+    "prog": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "otro_prog": "",
+    "tem": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "oprofe": [
+      0,
+      0,
+      1,
+      1,
+      0
+    ],
+    "mas_prof": "",
+    "otras_c": 0,
+    "otros_int": ""
+  },
+  {
+    "id": 18,
+    "ts": "26/05/2026",
+    "sexo": 1,
+    "edad": 54,
+    "pob": 3,
+    "perf": [
+      1,
+      0
+    ],
+    "acog": [
+      1,
+      1,
+      0,
+      0,
+      1
+    ],
+    "act": [
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0
+    ],
+    "otras_act": "",
+    "prog": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0
+    ],
+    "otro_prog": "",
+    "tem": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    "oprofe": [
+      0,
+      0,
+      1,
+      1,
+      0
+    ],
+    "mas_prof": "",
+    "otras_c": 1,
+    "otros_int": ""
+  },
+  {
+    "id": 19,
+    "ts": "26/05/2026",
+    "sexo": 1,
+    "edad": 64,
+    "pob": 2,
+    "perf": [
+      1,
+      0
+    ],
+    "acog": [
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "act": [
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+    ],
+    "otras_act": "",
+    "prog": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "otro_prog": "",
+    "tem": [
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "oprofe": [
+      0,
+      0,
+      1,
+      1,
+      0
+    ],
+    "mas_prof": "",
+    "otras_c": null,
+    "otros_int": ""
+  },
+  {
+    "id": 20,
+    "ts": "26/05/2026",
+    "sexo": 1,
+    "edad": 54,
+    "pob": 3,
+    "perf": [
+      0,
+      0
+    ],
+    "acog": [
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "act": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "otras_act": "",
+    "prog": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "otro_prog": "",
+    "tem": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0
+    ],
+    "oprofe": [
+      0,
+      1,
+      1,
+      0,
+      0
+    ],
+    "mas_prof": "",
+    "otras_c": 0,
+    "otros_int": ""
+  },
+  {
+    "id": 21,
+    "ts": "26/05/2026",
+    "sexo": 2,
+    "edad": 62,
+    "pob": 5,
+    "perf": [
+      1,
+      0
+    ],
+    "acog": [
+      0,
+      1,
+      0,
+      0,
+      1
+    ],
+    "act": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "otras_act": "promoción autonomía personal, alimentación, sueño, auto observación...",
+    "prog": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0
+    ],
+    "otro_prog": "",
+    "tem": [
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "oprofe": [
+      1,
+      1,
+      1,
+      1,
+      0
+    ],
+    "mas_prof": "",
+    "otras_c": 0,
+    "otros_int": ""
+  }
+];
+
+const L_PERFIL = ["Dirección", "Trabajo Social"];
+const L_ACOGIDA = [
+  "Talleres de Formación y Aprendizaje",
+  "Actividades Físicas y de Salud",
+  "Convivencia y Ocio",
+  "Servicios Asistenciales y de Información",
+  "Proyectos Especializados (ej. Alzheimer)"
+];
+const L_ACTIV = [
+  "Hábitos de vida: alimentación, ejercicio físico",
+  "Bienestar emocional: prevención soledad no deseada",
+  "Acceso al Sistema Sanitario: apps, circuitos",
+  "Cronicidad: hipertensión, diabetes",
+  "Primeros auxilios, prevención de caídas",
+  "Vacunación: estacionales y campañas",
+  "Medioambiente",
+  "Otros contenidos"
+];
+const L_PROG = [
+  "Acción Local en Salud (RELAS)",
+  "Ciudades Amigas de la Infancia",
+  "ERACIS",
+  "Programa Ciudades ante las Drogas",
+  "Colaboraciones con el centro de salud",
+  "Colaboraciones con ONGs",
+  "Otros recursos / programas",
+  "En ninguno"
+];
+const L_TEMA = [
+  "Accesibilidad al sistema sanitario (TICs)",
+  "Alimentación saludable. Cesta de la compra",
+  "Actividad física",
+  "Sueño",
+  "Bienestar emocional",
+  "Salud sexual",
+  "Enfermedades crónicas",
+  "Vida libre de alcohol y otras drogas",
+  "Vida sin humo (tabaco y cigarros electrónicos)",
+  "Salud y género. Prevención Violencia de Género",
+  "Primeros auxilios y accidentabilidad",
+  "Migración y salud",
+  "Campañas de salud (vacunación, ola de calor...)",
+  "Entornos saludables",
+  "Otras temáticas",
+  "En ninguna"
+];
+const L_OPROFE = [
+  "Cargos electos municipales (alcaldía, concejalías)",
+  "Personal del Ayuntamiento / Diputación",
+  "Profesionales del Sistema Sanitario",
+  "Asociaciones y Voluntariado",
+  "Otros/as profesionales"
+];
+const POBLAC = {
+  1: "< 1.000 hab.",
+  2: "1.001-5.000",
+  3: "5.001-20.000",
+  4: "20.001-50.000",
+  5: "> 50.000 hab."
+};
+
+const pct = (n, t) => t ? Math.round(n * 100 / t) : 0;
+const sum = arr => arr.reduce((a,b) => a + b, 0);
+const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+const topItem = arr => arr.slice().sort((a,b) => b.n - a.n)[0] || {lab:"—", n:0};
+const topTwo = arr => arr.slice().sort((a,b) => b.n - a.n).slice(0,2);
+const strongList = items => items.map(x => "<strong>" + esc(x.lab) + "</strong>").join(" y ");
+
+function counts(data, field, labels) {
+  return labels.map((lab, i) => ({ lab, n: data.reduce((a, r) => a + ((r[field] && r[field][i]) || 0), 0) }));
+}
+
+function renderBars(id, items, fillClass, N, limit) {
+  const sorted = items.slice().sort((a,b) => b.n - a.n);
+  const visible = limit ? sorted.slice(0, limit) : sorted;
+  const max = Math.max(...visible.map(i => i.n), 1);
+  document.getElementById(id).innerHTML = '<div class="bar-list">' + visible.map((item, idx) => {
+    const width = Math.max(3, pct(item.n, max));
+    const rankClass = idx === 0 ? ' is-top' : (idx === 1 ? ' is-second' : '');
+    const chip = idx === 0 ? '<span class="rank-chip">Máximo</span>' : (idx === 1 ? '<span class="rank-chip second">2º</span>' : '');
+    return '<div class="bar-item' + rankClass + '"><div class="bar-row"><span class="bar-name">' + esc(item.lab) + chip + '</span><span class="bar-num">' + item.n + ' / ' + N + ' · ' + pct(item.n, N) + '%</span></div><div class="track"><div class="fill ' + fillClass + '" style="width:' + width + '%"></div></div></div>';
+  }).join('') + '</div>';
+}
+
+function renderHeat(id, items, N) {
+  const filtered = items.filter(t => t.lab !== "En ninguna" && t.lab !== "Otras temáticas").sort((a,b) => b.n - a.n);
+  const max = Math.max(...filtered.map(t => t.n), 1);
+  document.getElementById(id).innerHTML = '<div class="heat-grid">' + filtered.map((t, idx) => {
+    const width = t.n ? Math.max(4, pct(t.n, max)) : 0;
+    const rowClass = idx < 3 ? ' is-top' : '';
+    const rank = idx < 3 ? '<span class="heat-rank">#' + (idx + 1) + '</span>' : '';
+    return '<div class="heat-row' + rowClass + '"><div class="heat-label">' + rank + esc(t.lab) + '</div><div class="heat-track"><div class="heat-fill" style="width:' + width + '%"></div></div><div class="heat-n">' + t.n + ' · ' + pct(t.n, N) + '%</div></div>';
+  }).join('') + '</div>';
+}
+
+function render(data) {
+  const N = data.length;
+  const edades = data.map(r => r.edad).filter(Boolean);
+  const edadMedia = edades.length ? (sum(edades) / edades.length).toFixed(1) : "—";
+  const perfil = counts(data, "perf", L_PERFIL);
+  const acogida = counts(data, "acog", L_ACOGIDA);
+  const actividades = counts(data, "act", L_ACTIV);
+  const programas = counts(data, "prog", L_PROG);
+  const temas = counts(data, "tem", L_TEMA);
+  const colaboracion = counts(data, "oprofe", L_OPROFE);
+  const poblacion = Object.entries(POBLAC).map(([key, lab]) => ({ lab, n: data.filter(r => String(r.pob) === key).length }));
+  const topTema = topItem(temas.filter(t => t.lab !== "En ninguna" && t.lab !== "Otras temáticas"));
+  const topAcogida = topItem(acogida);
+  const topActividad = topItem(actividades);
+  const centroSalud = programas[4].n;
+  const profesSanitarios = colaboracion[2].n;
+
+  document.getElementById("meta-n").textContent = N;
+  document.getElementById("summary-note").textContent = N + " registros completados";
+  document.getElementById("table-note").textContent = "N=" + N + " registros";
+
+  document.getElementById("intro-text").innerHTML =
+    "Este informe explota las respuestas completadas por profesionales vinculados a Centros de Participación Activa de la provincia de Granada. La lectura se limita a la descripción de los datos recogidos: perfil de respuesta, actividades con mayor acogida, contenidos declarados, colaboraciones registradas y temáticas formativas señaladas por las personas encuestadas.";
+  document.getElementById("executive-text").innerHTML =
+    "La encuesta recoge " + N + " respuestas completadas. Entre los resultados observados, " + centroSalud + " de " + N + " respuestas declaran colaboración con el centro de salud y la temática formativa señalada con mayor frecuencia es <strong>" + esc(topTema.lab) + "</strong>. La explotación presenta frecuencias y porcentajes sin incorporar propuestas de intervención.";
+
+  document.getElementById("kpi-row").innerHTML = [
+    ["Respondentes", N, "registros completados", ""],
+    ["Edad media", edadMedia, edades.length + " con edad registrada", "cyan"],
+    ["Dirección", perfil[0].n, pct(perfil[0].n, N) + "% del total", "green"],
+    ["Trabajo Social", perfil[1].n, pct(perfil[1].n, N) + "% del total", "amber"],
+    ["Col. centro salud", centroSalud, pct(centroSalud, N) + "% declaran colaboración", "orange"]
+  ].map(k => '<div class="kpi ' + k[3] + '"><div class="kpi-label">' + esc(k[0]) + '</div><div class="kpi-value">' + esc(k[1]) + '</div><div class="kpi-sub">' + esc(k[2]) + '</div></div>').join('');
+
+  renderBars("perfil-bars", perfil, "cyan", N);
+  renderBars("poblacion-bars", poblacion, "green", N);
+  renderBars("acogida-bars", acogida, "green", N);
+  renderBars("actividades-bars", actividades, "cyan", N);
+  renderBars("programas-bars", programas, "amber", N);
+  renderBars("colaboracion-bars", colaboracion, "orange", N);
+  renderHeat("tematicas-heat", temas, N);
+
+  const perfilTop = topItem(perfil);
+  const pobTop = topItem(poblacion);
+  const acogTop2 = topTwo(acogida);
+  const actTop2 = topTwo(actividades);
+  const progTop = topItem(programas);
+  const colTop = topItem(colaboracion);
+  const temaTop2 = topTwo(temas.filter(t => t.lab !== "En ninguna" && t.lab !== "Otras temáticas"));
+  const gaps = temas.filter(t => t.n === 0 && t.lab !== "En ninguna" && t.lab !== "Otras temáticas").map(t => t.lab);
+  document.getElementById("conclusions").innerHTML =
+    "<p><strong>1.</strong> Perfil de respuesta: predominan las respuestas de " + esc(perfilTop.lab) + " (" + perfilTop.n + "/" + N + ") y los municipios de " + esc(pobTop.lab) + " (" + pobTop.n + "/" + N + ").</p>" +
+    "<p><strong>2.</strong> Actividades con mayor acogida: " + esc(topAcogida.lab) + " (" + topAcogida.n + "/" + N + ") es la opción más seleccionada, seguida de " + esc(acogTop2[1].lab) + " (" + acogTop2[1].n + "/" + N + ").</p>" +
+    "<p><strong>3.</strong> Contenidos declarados: " + esc(topActividad.lab) + " (" + topActividad.n + "/" + N + ") aparece como el contenido más frecuente dentro de las respuestas registradas.</p>" +
+    "<p><strong>4.</strong> Preferencias formativas: " + esc(topTema.lab) + " (" + topTema.n + "/" + N + ") es la temática señalada con mayor frecuencia. Este apartado tiene carácter descriptivo y no incorpora recomendaciones programáticas.</p>";
+
+  const pobLabel = r => POBLAC[r.pob] || r.pob || "—";
+  const perfilLabel = r => [r.perf[0] ? "Dirección" : "", r.perf[1] ? "Trabajo Social" : ""].filter(Boolean).join(" + ") || "—";
+  document.getElementById("tabla").innerHTML = '<thead><tr><th>#</th><th>Fecha</th><th>Edad</th><th>Población</th><th>Perfil</th><th>Acogida</th><th>Actividades</th><th>Programas</th><th>Temáticas</th><th>Colaboración</th></tr></thead><tbody>' +
+    data.map(r => '<tr><td><span class="badge">' + r.id + '</span></td><td>' + esc(r.ts) + '</td><td>' + esc(r.edad || "—") + '</td><td>' + esc(pobLabel(r)) + '</td><td>' + esc(perfilLabel(r)) + '</td><td>' + sum(r.acog) + '</td><td>' + sum(r.act) + '</td><td>' + sum(r.prog) + '</td><td>' + sum(r.tem) + '</td><td>' + sum(r.oprofe) + '</td></tr>').join('') +
+    '</tbody>';
+
+  document.getElementById("narrative-close").innerHTML =
+    "<p>La encuesta recoge " + N + " respuestas completadas por profesionales vinculados a Centros de Participación Activa de la provincia de Granada. La edad media calculada sobre las respuestas con edad registrada es de " + edadMedia + " años, y el perfil profesional más frecuente corresponde a " + esc(perfilTop.lab) + ".</p>" +
+    "<p>En relación con el tamaño poblacional, la categoría más representada es " + esc(pobTop.lab) + ", con " + pobTop.n + " respuestas. En cuanto a la actividad cotidiana declarada, " + esc(topAcogida.lab) + " aparece como la actuación con mayor acogida, seguida de " + esc(acogTop2[1].lab) + ".</p>" +
+    "<p>Los contenidos más señalados en las respuestas son " + esc(actTop2[0].lab) + " y " + esc(actTop2[1].lab) + ". En el apartado de programas, recursos e interlocutores, la opción más frecuente es " + esc(progTop.lab) + ", mientras que entre los profesionales con quienes se trabaja destaca " + esc(colTop.lab) + ".</p>" +
+    "<p>Respecto a las temáticas formativas priorizadas, " + esc(temaTop2[0].lab) + " y " + esc(temaTop2[1].lab) + " ocupan las dos primeras posiciones. Las opciones sin selección registrada en esta muestra son: " + (gaps.length ? esc(gaps.join(", ")) : "ninguna") + ".</p>" +
+    "<p>El documento se limita a presentar la explotación descriptiva de la encuesta mediante recuentos, porcentajes y síntesis de resultados. No incorpora recomendaciones de implantación ni conclusiones programáticas ajenas a las respuestas recogidas.</p>";
+}
+
+render(DATA);
+</script>
+</body>
+</html>
